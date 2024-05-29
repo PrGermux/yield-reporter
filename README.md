@@ -1,6 +1,15 @@
 # yield-reporter
 This Python project is a comprehensive data analysis and visualization tool built with Python, leveraging PyQt5 for the graphical user interface and Matplotlib for data plotting. The application is specifically designed to manage, aggregate, and visualize production data from various machines, offering both tabular and graphical representations of the data.
 
+#### Screenshots:
+
+![grafik](https://github.com/PrGermux/yield-reporter/assets/11144116/b6838456-1816-4aea-9b50-998d61e0a308)
+![grafik](https://github.com/PrGermux/yield-reporter/assets/11144116/36549759-e067-466d-b70f-af1cbd0a6e8d)
+![grafik](https://github.com/PrGermux/yield-reporter/assets/11144116/443f6f06-3eb2-49fa-96e1-e64d9bd7d900)
+![grafik](https://github.com/PrGermux/yield-reporter/assets/11144116/1c744c6c-63bc-4caa-b37d-cbb069bf1517)
+
+
+
 #### Key Features:
 - **Multi-Tab Interface**: The application has multiple tabs for different views - weekly, monthly, and yearly data analysis.
 - **Data Aggregation and Filtering**: It supports filtering data by year and month, aggregating the lengths of tapes and scraps produced by various machines.
