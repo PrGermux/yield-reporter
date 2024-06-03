@@ -1,15 +1,8 @@
-# yield-reporter ![icon](https://github.com/PrGermux/yield-reporter/assets/11144116/da259fa1-3972-48e1-9523-108cfbc1b77a)
+# yield-reporter 
+
+![icon](https://github.com/PrGermux/yield-reporter/assets/11144116/da259fa1-3972-48e1-9523-108cfbc1b77a)
 
 This Python project is a comprehensive data analysis and visualization tool built with Python, leveraging PyQt5 for the graphical user interface and Matplotlib for data plotting. The application is specifically designed to manage, aggregate, and visualize production data from various machines, offering both tabular and graphical representations of the data.
-
-#### Screenshots:
-
-![grafik](https://github.com/PrGermux/yield-reporter/assets/11144116/b6838456-1816-4aea-9b50-998d61e0a308)
-![grafik](https://github.com/PrGermux/yield-reporter/assets/11144116/36549759-e067-466d-b70f-af1cbd0a6e8d)
-![grafik](https://github.com/PrGermux/yield-reporter/assets/11144116/443f6f06-3eb2-49fa-96e1-e64d9bd7d900)
-![grafik](https://github.com/PrGermux/yield-reporter/assets/11144116/1c744c6c-63bc-4caa-b37d-cbb069bf1517)
-
-
 
 #### Key Features:
 - **Multi-Tab Interface**: The application has multiple tabs for different views - weekly, monthly, and yearly data analysis.
@@ -36,6 +29,13 @@ This tool is highly useful for production managers, data analysts, and engineers
 - **Additional Data Sources**: Extend support for other data formats and sources, such as databases or APIs.
 
 This repository is a valuable resource for professionals in manufacturing and production environments, providing powerful tools for data-driven decision-making and operational efficiency improvements.
+
+#### Screenshots:
+
+![grafik](https://github.com/PrGermux/yield-reporter/assets/11144116/b6838456-1816-4aea-9b50-998d61e0a308)
+![grafik](https://github.com/PrGermux/yield-reporter/assets/11144116/36549759-e067-466d-b70f-af1cbd0a6e8d)
+![grafik](https://github.com/PrGermux/yield-reporter/assets/11144116/443f6f06-3eb2-49fa-96e1-e64d9bd7d900)
+![grafik](https://github.com/PrGermux/yield-reporter/assets/11144116/1c744c6c-63bc-4caa-b37d-cbb069bf1517)
 
 ## Installation
 1. Clone the repository:
