@@ -26,29 +26,29 @@ class PlotCanvas(FigureCanvas):
         self.ax.grid(axis='y', color='gray', linestyle='-', linewidth=0.5, zorder=0)  # Ensure grid is behind bars with zorder=0
         
         # Setup legend with labels renamed
-        legend_labels = ['Tape', 'Scrap']  # Rename labels for clarity
+        legend_labels = ['Number', 'Scrap']  # Rename labels for clarity
         self.ax.legend(legend_labels)
         
         self.draw()
 
-class SL1AB(QWidget):
+class Tab(QWidget):
     def __init__(self):
         super().__init__()
         self.initialize_ui()
 
     def initialize_ui(self):        
-        self.SL1AB_tabs = QTabWidget()
+        self.Tab_tabs = QTabWidget()
         self.week_tab = QWidget()
         self.month_tab = QWidget()
         self.year_tab = QWidget()
         
-        self.SL1AB_tabs.addTab(self.week_tab, "Week")
-        self.SL1AB_tabs.addTab(self.month_tab, "Month")
-        self.SL1AB_tabs.addTab(self.year_tab, "Year")
+        self.Tab_tabs.addTab(self.week_tab, "Week")
+        self.Tab_tabs.addTab(self.month_tab, "Month")
+        self.Tab_tabs.addTab(self.year_tab, "Year")
         
-        SL1AB_layout = QVBoxLayout()
-        SL1AB_layout.addWidget(self.SL1AB_tabs)
-        self.setLayout(SL1AB_layout)
+        Tab_layout = QVBoxLayout()
+        Tab_layout.addWidget(self.Tab_tabs)
+        self.setLayout(Tab_layout)
 
         self.setup_week_tab()
         self.setup_month_tab()
@@ -64,7 +64,7 @@ class SL1AB(QWidget):
         
         self.table = QTableWidget()
         self.table.setColumnCount(6)
-        self.table.setHorizontalHeaderLabels(["Tape", "In [m]", "Out [m]", "Yield", "Error", "Test"])
+        self.table.setHorizontalHeaderLabels(["Number", "In [m]", "Out [m]", "Yield", "Error", "Test"]) # Allocate displayed table labels in program 
         self.table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)  # Adjust table width to match window width
 
         header = self.table.horizontalHeader()
@@ -155,24 +155,28 @@ class SL1AB(QWidget):
                     item.setTextAlignment(Qt.AlignCenter)
 
     def load_initial_data(self):
-        file_path = r"P:\QP\02_Datenübersicht\03_Qualitätsprüfung\Prozesse\F051-1.xlsm"
+        # Put here the Excel file path
+        file_path = r""
         try:
-            sheets = ['Daten_EP', 'Daten_SL1A', 'Daten_SL1B']
+            # Put in "sheets" name of tabs from Excel file like so sheets = ['Tab1', 'Tab2', 'Tab3']
+            sheets = []
             dfs = []
 
             for sheet in sheets:
-                df = pd.read_excel(file_path, sheet_name=sheet, skiprows=2,
-                                   converters={'Prozess-Datum': lambda x: pd.to_datetime(x, format='%d.%m.%Y', errors='coerce')})
-                df.dropna(subset=['Prozess-Datum'], inplace=True)
+                # "skiprows" is how many rows to skip to find "Date" title of the column to indentify date
+                df = pd.read_excel(file_path, sheet_name=sheet, skiprows=1,
+                                   converters={'Date': lambda x: pd.to_datetime(x, format='%d.%m.%Y', errors='coerce')})
+                df.dropna(subset=['Date'], inplace=True)
+                # To check, if it was a test or not, can be omitted 
                 df['Test'] = df['Test'].apply(lambda x: 'Yes' if str(x).strip().lower() == 'ja' else 'No')
                 dfs.append(df)
 
             self.df = pd.concat([df for df in dfs if not df.empty], ignore_index=True)
 
             # Create the Year, Month, and Week columns
-            self.df['Year'] = self.df['Prozess-Datum'].dt.year
-            self.df['Month'] = self.df['Prozess-Datum'].dt.month
-            self.df['Week'] = self.df['Prozess-Datum'].dt.isocalendar().week
+            self.df['Year'] = self.df['Date'].dt.year
+            self.df['Month'] = self.df['Date'].dt.month
+            self.df['Week'] = self.df['Date'].dt.isocalendar().week
 
             valid_years = self.df['Year'].dropna().unique()
             sorted_years = sorted(valid_years, reverse=True)
@@ -201,15 +205,18 @@ class SL1AB(QWidget):
         start_of_week = datetime.strptime(f'{selected_year} {selected_week-1} 1', "%Y %W %w")
         end_of_week = start_of_week + timedelta(days=6)
 
-        file_path = r"P:\QP\02_Datenübersicht\03_Qualitätsprüfung\Prozesse\F051-1.xlsm"
+        # Put here the Excel file path
+        file_path = r""
         try:
-            sheets = ['Daten_EP', 'Daten_SL1A', 'Daten_SL1B']
+            # Put in "sheets" name of tabs from Excel file like so sheets = ['Tab1', 'Tab2', 'Tab3']
+            sheets = []
             dfs = []
 
             for sheet in sheets:
-                df = pd.read_excel(file_path, sheet_name=sheet, skiprows=2,
-                                   converters={'Prozess-Datum': lambda x: pd.to_datetime(x, format='%d.%m.%Y', errors='coerce')})
-                df_filtered = df[(df['Prozess-Datum'] >= start_of_week) & (df['Prozess-Datum'] <= end_of_week)]
+                # "skiprows" is how many rows to skip to find "Date" title of the column to indentify date
+                df = pd.read_excel(file_path, sheet_name=sheet, skiprows=1,
+                                   converters={'Date': lambda x: pd.to_datetime(x, format='%d.%m.%Y', errors='coerce')})
+                df_filtered = df[(df['Date'] >= start_of_week) & (df['Date'] <= end_of_week)]
                 if not df_filtered.empty:
                     dfs.append(df_filtered)
 
@@ -218,13 +225,13 @@ class SL1AB(QWidget):
             # Clear existing rows from the table
             self.table.setRowCount(0)
 
-            # Populate the table with data from df_filtered
+            # Populate the table with data from df_filtered from Excel file columns
             for index, row in df_filtered.iterrows():
-                tape = str(row['Bandnummer']) if not pd.isnull(row['Bandnummer']) else ""
-                in_val = int(row['Bandlänge']) if not pd.isnull(row['Bandlänge']) else 0
-                out_val = in_val - int(row['Ausschusslänge']) if not pd.isnull(row['Ausschusslänge']) else 0
+                tape = str(row['Number']) if not pd.isnull(row['Number']) else ""
+                in_val = int(row['Length']) if not pd.isnull(row['Length']) else 0
+                out_val = in_val - int(row['Scrap']) if not pd.isnull(row['Scrap']) else 0
                 yield_val = f"{(out_val / in_val * 100):.2f}%" if in_val != 0 else "N/A"
-                error_val = str(row['Ursache']) if not pd.isnull(row['Ursache']) else ""
+                error_val = str(row['Error']) if not pd.isnull(row['Error']) else ""
                 test_val = 'Yes' if row['Test'] == 'Yes' else 'No'
 
                 row_position = self.table.rowCount()
@@ -257,8 +264,8 @@ class SL1AB(QWidget):
             # Filter for the selected year and month
             df_filtered = self.df[(self.df['Year'] == selected_year) & (self.df['Month'] == selected_month)]
             
-            # Group by week and sum the relevant columns
-            weekly_data = df_filtered.groupby('Week').agg({'Bandlänge': 'sum', 'Ausschusslänge': 'sum'})
+            # Group by week and sum the relevant columns, f.i. "Length" and "Scrap"
+            weekly_data = df_filtered.groupby('Week').agg({'Length': 'sum', 'Scrap': 'sum'})
 
             # Ensure the plot includes only weeks within the selected month
             weeks_in_month = df_filtered['Week'].unique()
@@ -282,32 +289,35 @@ class SL1AB(QWidget):
         
         self.canvas_year.setVisible(True)
 
-        file_path = r"P:\QP\02_Datenübersicht\03_Qualitätsprüfung\Prozesse\F051-1.xlsm"
+        # Put here the Excel file path
+        file_path = r""
         try:
-            sheets = ['Daten_EP', 'Daten_SL1A', 'Daten_SL1B']
+            # Put in "sheets" name of tabs from Excel file like so sheets = ['Tab1', 'Tab2', 'Tab3']
+            sheets = []
             dfs = []
 
             for sheet in sheets:
-                df = pd.read_excel(file_path, sheet_name=sheet, skiprows=2,
-                                   converters={'Prozess-Datum': lambda x: pd.to_datetime(x, format='%d.%m.%Y', errors='coerce')})
+                # "skiprows" is how many rows to skip to find "Date" title of the column to indentify date
+                df = pd.read_excel(file_path, sheet_name=sheet, skiprows=1,
+                                   converters={'Date': lambda x: pd.to_datetime(x, format='%d.%m.%Y', errors='coerce')})
                 if not df.empty:
                     dfs.append(df)
 
             df = pd.concat(dfs, ignore_index=True)
 
             # Handle non-numeric or corrupt data before processing
-            df['Bandlänge'] = pd.to_numeric(df['Bandlänge'], errors='coerce').fillna(0)
-            df['Ausschusslänge'] = pd.to_numeric(df['Ausschusslänge'], errors='coerce').fillna(0)
+            df['Length'] = pd.to_numeric(df['Length'], errors='coerce').fillna(0)
+            df['Scrap'] = pd.to_numeric(df['Scrap'], errors='coerce').fillna(0)
 
-            df['Month'] = df['Prozess-Datum'].dt.month.dropna().astype(int)  # Safely convert month to integer
-            df['Year'] = df['Prozess-Datum'].dt.year.dropna().astype(int)
+            df['Month'] = df['Date'].dt.month.dropna().astype(int)  # Safely convert month to integer
+            df['Year'] = df['Date'].dt.year.dropna().astype(int)
 
             if df[df['Year'] == selected_year].empty:
                 print(f"No data available for the year {selected_year}.")
                 return
 
             # Aggregate data by month
-            monthly_data = df[df['Year'] == selected_year].groupby('Month').agg({'Bandlänge': 'sum', 'Ausschusslänge': 'sum'})
+            monthly_data = df[df['Year'] == selected_year].groupby('Month').agg({'Length': 'sum', 'Scrap': 'sum'})
 
             # Rename index to abbreviated month names
             monthly_data.index = [datetime(2000, month, 1).strftime('%b') for month in monthly_data.index.astype(int)]
