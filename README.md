@@ -47,12 +47,14 @@ pip install -r requirements.txt
 ```
 
 ## Usage
-**Warning:** This programm works only with specific data files. The user must adjust each tab to his/her needs with the respect to the structure of Excel-file.
+**WARNING:** This programm works only with specific data files. The user must adjust each tab to his/her needs with the respect to the structure of Excel-file.
 
 Run the main application:
 ```sh
 python main.py
 ```
+The source code of provided screenshots can be found in "Yield Reporter.zip".
+
 ## Freezing
 Run the code in a command line:
 ```sh
