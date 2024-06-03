@@ -54,6 +54,11 @@ Run the main application:
 ```sh
 python main.py
 ```
+## Freezing
+Run the code in a command line:
+```sh
+pyinstaller --onefile --windowed --icon=icon.png --add-data "icon.png;." --hidden-import=scipy.special._cdflib --name "Yield Reporter" main.py
+```
 
 ## Dependencies
 - Python 3.x
