@@ -1,7 +1,5 @@
 # yield-reporter 
 
-![icon](https://github.com/PrGermux/yield-reporter/assets/11144116/da259fa1-3972-48e1-9523-108cfbc1b77a)
-
 This Python project is a comprehensive data analysis and visualization tool built with Python, leveraging PyQt5 for the graphical user interface and Matplotlib for data plotting. The application is specifically designed to manage, aggregate, and visualize production data from various machines, offering both tabular and graphical representations of the data.
 
 #### Key Features:
