@@ -18,8 +18,6 @@ This Python project is a comprehensive data analysis and visualization tool buil
 - **Data Integration**: Combines data from multiple Excel sheets, ensuring comprehensive analysis across different data sources.
 
 #### Usage
-**Warning:** This programm works only with specific data files. The user must adjust each tab to his/her needs with the respect to the structure of Excel-file.
-
 This tool is highly useful for production managers, data analysts, and engineers who need to monitor, analyze, and report on machine performance and production efficiency. By providing both numerical summaries and graphical visualizations, the application helps in identifying trends, inefficiencies, and areas for improvement in production processes.
 
 #### Python Branch and Complexity
@@ -50,6 +48,8 @@ pip install -r requirements.txt
 ```
 
 ## Usage
+**Warning:** This programm works only with specific data files. The user must adjust each tab to his/her needs with the respect to the structure of Excel-file.
+
 Run the main application:
 ```sh
 python main.py
