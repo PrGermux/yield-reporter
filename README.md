@@ -68,4 +68,4 @@ pyinstaller --onefile --windowed --icon=icon.png --add-data "icon.png;." --hidde
 - Matplotlib
 
 ## License
-This project is licensed under the MIT License.
+This project is licensed under the MIT License for non-commercial use.
