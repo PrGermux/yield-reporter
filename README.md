@@ -30,10 +30,13 @@ This repository is a valuable resource for professionals in manufacturing and pr
 
 #### Screenshots:
 
-![grafik](https://github.com/PrGermux/yield-reporter/assets/11144116/b6838456-1816-4aea-9b50-998d61e0a308)
-![grafik](https://github.com/PrGermux/yield-reporter/assets/11144116/36549759-e067-466d-b70f-af1cbd0a6e8d)
-![grafik](https://github.com/PrGermux/yield-reporter/assets/11144116/443f6f06-3eb2-49fa-96e1-e64d9bd7d900)
-![grafik](https://github.com/PrGermux/yield-reporter/assets/11144116/1c744c6c-63bc-4caa-b37d-cbb069bf1517)
+![grafik](https://github.com/user-attachments/assets/6609d257-4b27-4c74-b053-3d2ac4d9c28f)
+![grafik](https://github.com/user-attachments/assets/fab917e0-483f-4d8b-8306-a69da0b3a5a5)
+![grafik](https://github.com/user-attachments/assets/8d3bde84-9d53-46ae-b492-7c971948914e)
+![grafik](https://github.com/user-attachments/assets/42678be6-20c7-4a7f-959d-7c61603f0227)
+![grafik](https://github.com/user-attachments/assets/d2c5c225-0a74-4d89-aa24-fb3243bd0283)
+![grafik](https://github.com/user-attachments/assets/e48a947b-dd2e-46a5-ac24-783220ada4f1)
+![grafik](https://github.com/user-attachments/assets/17904771-0105-4c31-9650-d9d4eb1a3939)
 
 ## Installation
 1. Clone the repository:
