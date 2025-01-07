@@ -30,13 +30,13 @@ This repository is a valuable resource for professionals in manufacturing and pr
 
 #### Screenshots:
 
-![grafik](https://github.com/user-attachments/assets/6609d257-4b27-4c74-b053-3d2ac4d9c28f)
-![grafik](https://github.com/user-attachments/assets/fab917e0-483f-4d8b-8306-a69da0b3a5a5)
-![grafik](https://github.com/user-attachments/assets/8d3bde84-9d53-46ae-b492-7c971948914e)
-![grafik](https://github.com/user-attachments/assets/42678be6-20c7-4a7f-959d-7c61603f0227)
-![grafik](https://github.com/user-attachments/assets/d2c5c225-0a74-4d89-aa24-fb3243bd0283)
-![grafik](https://github.com/user-attachments/assets/e48a947b-dd2e-46a5-ac24-783220ada4f1)
-![grafik](https://github.com/user-attachments/assets/17904771-0105-4c31-9650-d9d4eb1a3939)
+![grafik](https://github.com/user-attachments/assets/daea22b4-985c-457f-9d30-ba6e05ba6c13)
+![grafik](https://github.com/user-attachments/assets/b2182206-9258-49a4-b5be-079eb6c7d12b)
+![grafik](https://github.com/user-attachments/assets/3eb104c4-bb28-4ea3-8eb8-483e81510563)
+![grafik](https://github.com/user-attachments/assets/c7306be2-c43e-44b7-a01a-361ae4fb95a3)
+![grafik](https://github.com/user-attachments/assets/b73ea687-02a5-4d89-b562-cb74fbcb8538)
+![grafik](https://github.com/user-attachments/assets/c589a62b-d029-4fde-a49b-fbd61b14e457)
+![grafik](https://github.com/user-attachments/assets/2b1becd6-6e66-4906-9aba-997891b9a0ba)
 
 ## Installation
 1. Clone the repository:
